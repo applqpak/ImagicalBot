@@ -34,10 +34,10 @@ class Main extends PluginBase implements Listener{
       $heymessage = $config->get("Hey-Message");
       $howareyoumessage = $config->get("How-Are-You-Message");
       
-      if($pmessage === "hi" or "Hi"){
+      if(strtolower($pmessage) === "hi"{
       $online->broadcastMessage(C::AQUA . C::BOLD . $prefix . " " . C::WHITE . C::RESET . $himessage . " @" . $name);
       }
-      if($pmessage === "hey" or "Hey"){
+      if(strtolower($pmessage) === "hey"){
         $online->broadcastMessage(C::AQUA . C::BOLD . $prefix . " " . C::WHITE . C::RESET . $heymessage . " @" . $name);
       }
     }
