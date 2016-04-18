@@ -34,7 +34,7 @@ class Main extends PluginBase implements Listener{
       $heymessage = $config->get("Hey-Message");
       $howareyoumessage = $config->get("How-Are-You-Message");
       
-      if(strtolower($pmessage) === "hi"{
+      if(strtolower($pmessage) === "hi"){
       $online->broadcastMessage(C::AQUA . C::BOLD . $prefix . " " . C::WHITE . C::RESET . $himessage . " @" . $name);
       }
       if(strtolower($pmessage) === "hey"){
