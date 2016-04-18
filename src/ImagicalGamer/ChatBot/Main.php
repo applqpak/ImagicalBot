@@ -16,29 +16,29 @@ use pocketmine\plugin\Plugin;
 class Main extends PluginBase implements Listener{
 
   public function onEnable(){
-  $this->saveDeafultConfig();
+  $this->saveDefaultConfig();
   $this->getServer()->getPluginManager()->registerEvents($this, $this);
-  $this->logger()->info(C::GREEN . "Enabled!");
+  $this->getLogger()->info(C::GREEN . "Enabled!");
   }
 
     public function onChat(PlayerChatEvent $event){
       $config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
       $player = $event->getPlayer();
       $name = $player->getName();
-      $prefix = $confg->get("Prefix");
+      $prefix = $config->get("Prefix");
       $online =  $this->getServer();
       
       //Messages
-      $pmessage = $player->getMessage();
+      $pmessage = $event->getMessage();
       $himessage = $config->get("Hi-Message");
       $heymessage = $config->get("Hey-Message");
       $howareyoumessage = $config->get("How-Are-You-Message");
       
-      if($message === "hi" or "Hi"){
-      $online->broadcastMessage(C::AQUA . C::BOLD . $prefix . C::WHITE . C::RESET . $messagehi . " @" . $name);
+      if($pmessage === "hi" or "Hi"){
+      $online->broadcastMessage(C::AQUA . C::BOLD . $prefix . " " . C::WHITE . C::RESET . $himessage . " @" . $name);
       }
-      if($message === "hey" or "Hey"){
-        $online->broadcastMessage($prefix . $messagehey . " @" . $name);
+      if($pmessage === "hey" or "Hey"){
+        $online->broadcastMessage(C::AQUA . C::BOLD . $prefix . " " . C::WHITE . C::RESET . $heymessage . " @" . $name);
       }
     }
 }
