@@ -27,12 +27,16 @@ class Main extends PluginBase implements Listener{
       $player = $event->getPlayer();
       $name = $player->getName();
       $prefix = $confg->get("Prefix");
-      $messages = new Config($this->getDataFolder() . "/messages.yml", Config::YAML);
+      $online =  $this->getServer();
+      
+      //Messages
       $pmessage = $player->getMessage();
+      $himessage = $config->get("Hi-Message");
+      $heymessage = $config->get("Yo-Message");
+      $howareyoumessage = $config->get("How-Are-You-Message");
+      
       if($message === "hi"){
-      foreach($this->getOnlinePlayers as $online){
-      $online->sendMessage($prefix . $messagehi);
-      }
+      $online->broadcastMessage($prefix . $messagehi . " @" . $name);
       }
     }
 }
