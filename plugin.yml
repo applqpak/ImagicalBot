@@ -1,0 +1,8 @@
+
+---
+name: ImagicalBot
+author: ImagicalGamer
+version: 1.0.0
+api: [2.0.0]
+main: ImagicalGamer\ChatBot\Main
+...
