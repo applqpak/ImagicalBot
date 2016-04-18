@@ -32,11 +32,14 @@ class Main extends PluginBase implements Listener{
       //Messages
       $pmessage = $player->getMessage();
       $himessage = $config->get("Hi-Message");
-      $heymessage = $config->get("Yo-Message");
+      $heymessage = $config->get("Hey-Message");
       $howareyoumessage = $config->get("How-Are-You-Message");
       
-      if($message === "hi"){
+      if($message === "hi" or "Hi"){
       $online->broadcastMessage($prefix . $messagehi . " @" . $name);
+      }
+      if($message === "hey" or "Hey"){
+        $online->broadcastMessage($prefix . $messagehey . " @" . $name);
       }
     }
 }
