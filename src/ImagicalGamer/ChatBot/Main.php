@@ -33,12 +33,14 @@ class Main extends PluginBase implements Listener{
       $himessage = $config->get("Hi-Message");
       $heymessage = $config->get("Hey-Message");
       $howareyoumessage = $config->get("How-Are-You-Message");
+
+      switch(strtolower($pmessage)){
       
-      if(strtolower($pmessage) === "hi"){
+      case "hi":
       $online->broadcastMessage(C::AQUA . C::BOLD . $prefix . " " . C::WHITE . C::RESET . $himessage . " @" . $name);
-      }
-      if(strtolower($pmessage) === "hey"){
+      break;
+      case "hey":
         $online->broadcastMessage(C::AQUA . C::BOLD . $prefix . " " . C::WHITE . C::RESET . $heymessage . " @" . $name);
-      }
+      break;
     }
 }
